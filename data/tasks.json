@@ -1,0 +1,241 @@
+{
+  "version": "1.0",
+  "categories": [
+    "general",
+    "engineering",
+    "management",
+    "hr",
+    "marketing",
+    "support"
+  ],
+  "locations": [
+    "office",
+    "meeting_room",
+    "kitchen",
+    "restroom",
+    "corridor",
+    "reception"
+  ],
+  "tasks": [
+    {
+      "id": "review_documents",
+      "name": "Просмотр документов",
+      "description": "Просмотреть и проанализировать важные проектные документы",
+      "category": "general",
+      "duration": 60,
+      "success_rate": 0.8,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "team_meeting",
+      "name": "Командное совещание",
+      "description": "Участие в командном совещании для обсуждения текущих задач",
+      "category": "general",
+      "duration": 45,
+      "success_rate": 0.9,
+      "location": "meeting_room",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "send_emails",
+      "name": "Отправка писем",
+      "description": "Отправка важных писем клиентам",
+      "category": "general",
+      "duration": 30,
+      "success_rate": 0.85,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "phone_call",
+      "name": "Важный звонок",
+      "description": "Сделать важный телефонный звонок",
+      "category": "general",
+      "duration": 15,
+      "success_rate": 0.75,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "coffee_break",
+      "name": "Перерыв на кофе",
+      "description": "Сделать перерыв на кофе",
+      "category": "general",
+      "duration": 15,
+      "success_rate": 0.95,
+      "location": "kitchen",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "fill_water",
+      "name": "Налить воду",
+      "description": "Налить стакан воды из кулера",
+      "category": "general",
+      "duration": 5,
+      "success_rate": 0.7,
+      "location": "kitchen",
+      "required_position": null,
+      "fail_event": "Water spill"
+    },
+    {
+      "id": "carry_docs",
+      "name": "Перенос документов",
+      "description": "Перенести стопку документов в другую комнату",
+      "category": "general",
+      "duration": 10,
+      "success_rate": 0.6,
+      "location": "corridor",
+      "required_position": null,
+      "fail_event": "Dropped papers"
+    },
+    {
+      "id": "bring_coffee",
+      "name": "Принести кофе",
+      "description": "Принести кофе коллеге",
+      "category": "general",
+      "duration": 8,
+      "success_rate": 0.65,
+      "location": "corridor",
+      "required_position": null,
+      "fail_event": "Coffee spill"
+    },
+    {
+      "id": "code_review",
+      "name": "Код-ревью",
+      "description": "Просмотр и анализ кода проекта",
+      "category": "engineering",
+      "duration": 60,
+      "success_rate": 0.7,
+      "location": "office",
+      "required_position": "SENIOR",
+      "fail_event": null
+    },
+    {
+      "id": "interview",
+      "name": "Собеседование",
+      "description": "Проведение собеседования с кандидатом",
+      "category": "hr",
+      "duration": 90,
+      "success_rate": 0.8,
+      "location": "meeting_room",
+      "required_position": "MANAGER",
+      "fail_event": null
+    },
+    {
+      "id": "prepare_presentation",
+      "name": "Подготовка презентации",
+      "description": "Подготовить презентацию для клиента",
+      "category": "marketing",
+      "duration": 120,
+      "success_rate": 0.75,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "debug_issue",
+      "name": "Отладка проблемы",
+      "description": "Найти и исправить ошибку в коде",
+      "category": "engineering",
+      "duration": 45,
+      "success_rate": 0.6,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "data_analysis",
+      "name": "Анализ данных",
+      "description": "Проанализировать данные о пользователях",
+      "category": "marketing",
+      "duration": 75,
+      "success_rate": 0.8,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "submit_report",
+      "name": "Подача отчета",
+      "description": "Подготовить и отправить ежемесячный отчет",
+      "category": "management",
+      "duration": 60,
+      "success_rate": 0.85,
+      "location": "office",
+      "required_position": "MANAGER",
+      "fail_event": null
+    },
+    {
+      "id": "fix_printer",
+      "name": "Починить принтер",
+      "description": "Устранить неполадку в работе принтера",
+      "category": "support",
+      "duration": 20,
+      "success_rate": 0.5,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "clean_spill",
+      "name": "Убрать разлив",
+      "description": "Вытереть разлитую воду",
+      "category": "general",
+      "duration": 15,
+      "success_rate": 0.9,
+      "location": "kitchen",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "collect_papers",
+      "name": "Собрать бумаги",
+      "description": "Собрать разбросанные бумаги",
+      "category": "general",
+      "duration": 10,
+      "success_rate": 0.95,
+      "location": "corridor",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "clean_coffee",
+      "name": "Убрать кофе",
+      "description": "Вытереть разлитый кофе",
+      "category": "general",
+      "duration": 20,
+      "success_rate": 0.85,
+      "location": "office",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "bathroom_break",
+      "name": "Перерыв",
+      "description": "Сходить в туалет",
+      "category": "general",
+      "duration": 5,
+      "success_rate": 1.0,
+      "location": "restroom",
+      "required_position": null,
+      "fail_event": null
+    },
+    {
+      "id": "greet_visitor",
+      "name": "Встреча посетителя",
+      "description": "Встретить и проводить посетителя",
+      "category": "general",
+      "duration": 10,
+      "success_rate": 0.9,
+      "location": "reception",
+      "required_position": null,
+      "fail_event": null
+    }
+  ]
+}

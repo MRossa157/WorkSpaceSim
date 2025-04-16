@@ -1,0 +1,19 @@
+{
+  "id": "coffee_machine_broken",
+  "type": "office",
+  "name": "Сломанная кофемашина",
+  "description": "Кофемашина в офисе сломалась, что вызывает недовольство среди сотрудников.",
+  "conditions": {
+    "random_chance": 0.3,
+    "min_workers": 2,
+    "cooldown_days": 14
+  },
+  "effects": {
+    "mood_change": -15,
+    "productivity_change": -8,
+    "message": "Кофемашина в офисе сломалась. Сотрудники недовольны!",
+    "duration": 120
+  },
+  "activation_message": "О нет! Кофемашина перестала работать. Сотрудники в панике.",
+  "deactivation_message": "Кофемашину починили. Все рады возможности снова выпить кофе."
+}

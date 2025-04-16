@@ -1,0 +1,20 @@
+{
+  "id": "birthday",
+  "type": "personal",
+  "name": "День рождения",
+  "description": "У одного из сотрудников сегодня день рождения. Это поднимает настроение всей команде.",
+  "conditions": {
+    "random_chance": 0.9,
+    "requires_specific_worker": true,
+    "cooldown_days": 180
+  },
+  "effects": {
+    "mood_change": 20,
+    "productivity_change": 5,
+    "target_worker_mood_change": 30,
+    "message": "{worker_name} празднует день рождения! Команда собирается на небольшой праздник.",
+    "duration": 180
+  },
+  "activation_message": "Сегодня день рождения у {worker_name}! Коллеги готовят сюрприз.",
+  "deactivation_message": "Праздник окончен, но все вспоминают его с улыбкой."
+}

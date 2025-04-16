@@ -1,0 +1,19 @@
+{
+  "id": "rain",
+  "type": "weather",
+  "name": "Дождливый день",
+  "description": "Сильный дождь ухудшает настроение сотрудников и снижает их продуктивность.",
+  "conditions": {
+    "weather": ["rain", "thunderstorm"],
+    "random_chance": 0.8,
+    "min_workers": 3
+  },
+  "effects": {
+    "mood_change": -10,
+    "productivity_change": -5,
+    "message": "За окном начался сильный дождь. Настроение сотрудников ухудшается.",
+    "duration": 60
+  },
+  "activation_message": "За окном начался проливной дождь. Сотрудники чувствуют уныние.",
+  "deactivation_message": "Дождь закончился, и настроение в офисе улучшается."
+}

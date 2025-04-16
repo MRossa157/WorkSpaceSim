@@ -1,0 +1,51 @@
+{
+  "id": "scenario_template",
+  "name": "Название сценария",
+  "description": "Подробное описание сценария",
+  "type": "daily",
+  "probability": 1.0,
+  "requirements": {
+    "time_start": "08:00",
+    "time_end": "10:00",
+    "day_of_week": null,
+    "departments": null,
+    "positions": null
+  },
+  "tasks": [
+    {
+      "id": "task_1",
+      "ref_task": "task_id_from_tasks_json",
+      "custom_name": null,
+      "custom_description": null,
+      "priority": "normal",
+      "delay": 0,
+      "required_completion": true,
+      "forced_fail": false,
+      "location": null,
+      "assigned_to": {
+        "position": null,
+        "department": null,
+        "random": false,
+        "exclude_position": null,
+        "exclude_department": null
+      },
+      "dependencies": [],
+      "participants": null
+    },
+    {
+      "id": "task_2",
+      "ref_task": "another_task_id",
+      "custom_name": "Переопределенное название",
+      "custom_description": "Переопределенное описание",
+      "priority": "high",
+      "delay": 15,
+      "required_completion": true,
+      "dependencies": ["task_1"],
+      "participants": {
+        "departments": ["ENGINEERING"],
+        "min_participants": 2,
+        "max_participants": 5
+      }
+    }
+  ]
+}

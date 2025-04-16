@@ -1,0 +1,30 @@
+{
+  "id": "morning_routine",
+  "name": "Утренняя рутина",
+  "description": "Типичное начало рабочего дня",
+  "type": "daily",
+  "probability": 1.0,
+  "requirements": {
+    "time_start": "08:00",
+    "time_end": "10:00",
+    "day_of_week": null,
+    "departments": null,
+    "positions": null
+  },
+  "tasks": [
+    {
+      "id": "coffee_morning",
+      "ref_task": "coffee_break",
+      "priority": "high",
+      "delay": 0,
+      "required_completion": false
+    },
+    {
+      "id": "check_emails",
+      "ref_task": "send_emails",
+      "priority": "normal",
+      "delay": 15,
+      "required_completion": true
+    }
+  ]
+}

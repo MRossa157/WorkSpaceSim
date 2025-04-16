@@ -1,0 +1,44 @@
+{
+  "id": "end_of_day_routine",
+  "name": "Окончание рабочего дня",
+  "description": "Действия перед уходом домой",
+  "type": "daily",
+  "probability": 1.0,
+  "requirements": {
+    "time_start": "17:00",
+    "time_end": "18:00",
+    "day_of_week": null,
+    "departments": null,
+    "positions": null
+  },
+  "tasks": [
+    {
+      "id": "submit_daily_report",
+      "ref_task": "submit_report",
+      "custom_name": "Отправка дневного отчета",
+      "custom_description": "Отправить отчет о работе за день",
+      "priority": "normal",
+      "delay": 0,
+      "required_completion": false
+    },
+    {
+      "id": "prepare_for_tomorrow",
+      "ref_task": "review_documents",
+      "custom_name": "Подготовка к следующему дню",
+      "custom_description": "Подготовка документов и планов на завтра",
+      "priority": "low",
+      "delay": 15,
+      "required_completion": false
+    },
+    {
+      "id": "exit_building",
+      "ref_task": "greet_visitor",
+      "custom_name": "Покинуть офис",
+      "custom_description": "Покинуть рабочее место и выйти из здания",
+      "priority": "high",
+      "delay": 30,
+      "required_completion": true,
+      "location": "reception"
+    }
+  ]
+}

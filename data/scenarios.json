@@ -1,0 +1,299 @@
+{
+  "version": "1.0",
+  "scenario_types": [
+    "daily",
+    "weekly",
+    "random",
+    "crisis",
+    "special",
+    "department"
+  ],
+  "scenario_types_descriptions": {
+    "daily": "Ежедневные рутинные сценарии",
+    "weekly": "Еженедельные события",
+    "random": "Случайные события",
+    "crisis": "Кризисные ситуации",
+    "special": "Особые события",
+    "department": "События для конкретных отделов"
+  },
+  "scenarios": [
+    {
+      "id": "morning_routine",
+      "name": "Утренняя рутина",
+      "description": "Типичное начало рабочего дня",
+      "type": "daily",
+      "probability": 1.0,
+      "requirements": {
+        "time_start": "08:00",
+        "time_end": "10:00",
+        "day_of_week": null,
+        "departments": null,
+        "positions": null
+      },
+      "tasks": [
+        {
+          "id": "coffee_morning",
+          "ref_task": "coffee_break",
+          "priority": "high",
+          "delay": 0,
+          "required_completion": false
+        },
+        {
+          "id": "check_emails",
+          "ref_task": "send_emails",
+          "priority": "normal",
+          "delay": 15,
+          "required_completion": true
+        }
+      ]
+    },
+    {
+      "id": "team_weekly_sync",
+      "name": "Еженедельное командное совещание",
+      "description": "Регулярная встреча команды",
+      "type": "weekly",
+      "probability": 1.0,
+      "requirements": {
+        "time_start": "11:00",
+        "time_end": "12:00",
+        "day_of_week": "monday",
+        "departments": null,
+        "positions": null
+      },
+      "tasks": [
+        {
+          "id": "prepare_for_meeting",
+          "ref_task": "prepare_presentation",
+          "priority": "high",
+          "delay": 0,
+          "required_completion": true,
+          "assigned_to": {
+            "position": "MANAGER",
+            "department": null
+          }
+        },
+        {
+          "id": "conduct_meeting",
+          "ref_task": "team_meeting",
+          "priority": "high",
+          "delay": 60,
+          "required_completion": true,
+          "dependencies": ["prepare_for_meeting"],
+          "participants": {
+            "departments": ["ENGINEERING", "MARKETING"],
+            "min_participants": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "printer_breakdown",
+      "name": "Поломка принтера",
+      "description": "Принтер перестал работать и нужно его починить",
+      "type": "crisis",
+      "probability": 0.3,
+      "requirements": {
+        "time_start": "10:00",
+        "time_end": "16:00",
+        "day_of_week": null,
+        "departments": null,
+        "positions": null
+      },
+      "tasks": [
+        {
+          "id": "notice_printer_issue",
+          "ref_task": "send_emails",
+          "custom_name": "Сообщение о поломке принтера",
+          "custom_description": "Отправить сообщение о том, что принтер не работает",
+          "priority": "normal",
+          "delay": 0,
+          "required_completion": true,
+          "assigned_to": {
+            "position": null,
+            "department": null,
+            "random": true
+          }
+        },
+        {
+          "id": "repair_printer",
+          "ref_task": "fix_printer",
+          "priority": "high",
+          "delay": 15,
+          "required_completion": true,
+          "dependencies": ["notice_printer_issue"],
+          "assigned_to": {
+            "position": null,
+            "department": "SUPPORT"
+          }
+        },
+        {
+          "id": "notify_fix_complete",
+          "ref_task": "send_emails",
+          "custom_name": "Уведомление о починке принтера",
+          "custom_description": "Отправить уведомление, что принтер снова работает",
+          "priority": "low",
+          "delay": 10,
+          "required_completion": false,
+          "dependencies": ["repair_printer"],
+          "assigned_to": {
+            "position": null,
+            "department": "SUPPORT"
+          }
+        }
+      ]
+    },
+    {
+      "id": "coffee_spill_scenario",
+      "name": "Разлив кофе",
+      "description": "Кто-то разлил кофе, что создает цепочку действий",
+      "type": "random",
+      "probability": 0.2,
+      "requirements": {
+        "time_start": "09:00",
+        "time_end": "17:00",
+        "day_of_week": null,
+        "departments": null,
+        "positions": null
+      },
+      "tasks": [
+        {
+          "id": "spill_coffee",
+          "ref_task": "bring_coffee",
+          "priority": "normal",
+          "delay": 0,
+          "required_completion": true,
+          "forced_fail": true,
+          "assigned_to": {
+            "position": null,
+            "department": null,
+            "random": true,
+            "exclude_position": ["MANAGER", "DIRECTOR"]
+          }
+        },
+        {
+          "id": "clean_coffee_spill",
+          "ref_task": "clean_coffee",
+          "priority": "high",
+          "delay": 5,
+          "required_completion": true,
+          "dependencies": ["spill_coffee"],
+          "assigned_to": {
+            "same_as": "spill_coffee"
+          }
+        },
+        {
+          "id": "get_new_coffee",
+          "ref_task": "coffee_break",
+          "priority": "low",
+          "delay": 15,
+          "required_completion": false,
+          "dependencies": ["clean_coffee_spill"],
+          "assigned_to": {
+            "same_as": "spill_coffee"
+          }
+        }
+      ]
+    },
+    {
+      "id": "engineering_code_review",
+      "name": "Командный код-ревью",
+      "description": "Отдел разработки проводит ревью кода",
+      "type": "department",
+      "probability": 0.7,
+      "requirements": {
+        "time_start": "14:00",
+        "time_end": "16:00",
+        "day_of_week": "wednesday",
+        "departments": ["ENGINEERING"],
+        "positions": null
+      },
+      "tasks": [
+        {
+          "id": "prepare_code_review",
+          "ref_task": "code_review",
+          "priority": "high",
+          "delay": 0,
+          "required_completion": true,
+          "assigned_to": {
+            "position": "SENIOR",
+            "department": "ENGINEERING"
+          }
+        },
+        {
+          "id": "conduct_review_meeting",
+          "ref_task": "team_meeting",
+          "custom_name": "Собрание по код-ревью",
+          "custom_description": "Проведение собрания по анализу и обсуждению кода",
+          "priority": "high",
+          "delay": 60,
+          "required_completion": true,
+          "dependencies": ["prepare_code_review"],
+          "participants": {
+            "departments": ["ENGINEERING"],
+            "min_participants": 2
+          }
+        },
+        {
+          "id": "implement_feedback",
+          "ref_task": "debug_issue",
+          "custom_name": "Внедрение правок после ревью",
+          "custom_description": "Внесение улучшений в код после проведения ревью",
+          "priority": "normal",
+          "delay": 30,
+          "required_completion": true,
+          "dependencies": ["conduct_review_meeting"],
+          "participants": {
+            "departments": ["ENGINEERING"],
+            "exclude_position": ["SENIOR"],
+            "min_participants": 1,
+            "max_participants": 3
+          }
+        }
+      ]
+    },
+    {
+      "id": "end_of_day_routine",
+      "name": "Окончание рабочего дня",
+      "description": "Действия перед уходом домой",
+      "type": "daily",
+      "probability": 1.0,
+      "requirements": {
+        "time_start": "17:00",
+        "time_end": "18:00",
+        "day_of_week": null,
+        "departments": null,
+        "positions": null
+      },
+      "tasks": [
+        {
+          "id": "submit_daily_report",
+          "ref_task": "submit_report",
+          "custom_name": "Отправка дневного отчета",
+          "custom_description": "Отправить отчет о работе за день",
+          "priority": "normal",
+          "delay": 0,
+          "required_completion": false
+        },
+        {
+          "id": "prepare_for_tomorrow",
+          "ref_task": "review_documents",
+          "custom_name": "Подготовка к следующему дню",
+          "custom_description": "Подготовка документов и планов на завтра",
+          "priority": "low",
+          "delay": 15,
+          "required_completion": false
+        },
+        {
+          "id": "exit_building",
+          "ref_task": "greet_visitor",
+          "custom_name": "Покинуть офис",
+          "custom_description": "Покинуть рабочее место и выйти из здания",
+          "priority": "high",
+          "delay": 30,
+          "required_completion": true,
+          "location": "reception"
+        }
+      ]
+    }
+  ]
+}
