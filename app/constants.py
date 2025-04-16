@@ -1,7 +1,6 @@
 """
 Константы для проекта WorkSpaceSim.
 """
-import os
 
 import pygame
 from models import RoomType
@@ -38,7 +37,7 @@ SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 800
 
 # Скорость симуляции
-BASE_SIMULATION_SPEED = 1.0  # Базовая скорость симуляции (минут за кадр)
+BASE_SIMULATION_SPEED = 1  # Базовая скорость симуляции (минут за кадр)
 SPEED_MULTIPLIER_1 = 1  # Множитель для клавиши 1
 SPEED_MULTIPLIER_2 = 10  # Множитель для клавиши 2
 SPEED_MULTIPLIER_3 = 100  # Множитель для клавиши 3
@@ -68,7 +67,7 @@ MAX_TASKS_DISPLAYED = 15
 
 # Параметры симуляции
 DEFAULT_WORKER_COUNT = 8
-FPS = 5
+FPS = 30
 
 # Рабочее расписание (в минутах от начала дня)
 WORKDAY_START_HOUR = 8
@@ -85,6 +84,3 @@ OVERTIME_PROBABILITY = 0.3  # Вероятность того, что работ
 # Перемещение работников
 MIN_TASK_MOVEMENT_DISTANCE = 50  # Минимальное расстояние для перемещения при выполнении задачи
 WORKER_ARRIVAL_VARIATION = 15  # Разброс времени прихода работников (в минутах)
-
-# Путь к файлу заданий
-TASKS_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'tasks.json')
