@@ -1,1 +1,36 @@
- 
+{
+  "id": "coffee_break",
+  "name": "Перерыв на кофе",
+  "description": "Работник идёт в комнату отдыха за кофе",
+  "type": "random",
+  "probability": 0.3,
+  "requirements": {
+    "time_start": "09:00",
+    "time_end": "17:00",
+    "day_of_week": null,
+    "departments": null,
+    "positions": null
+  },
+  "tasks": [
+    {
+      "id": "get_coffee",
+      "ref_task": "coffee_break",
+      "custom_name": "Сходить за кофе",
+      "custom_description": "Отправиться в комнату отдыха и сделать себе кофе",
+      "priority": "low",
+      "delay": 0,
+      "required_completion": false,
+      "forced_fail": false,
+      "location": "break_room",
+      "assigned_to": {
+        "position": null,
+        "department": null,
+        "random": true,
+        "exclude_position": null,
+        "exclude_department": null
+      },
+      "dependencies": [],
+      "participants": null
+    }
+  ]
+}
